@@ -62,4 +62,9 @@ public class _01_Pairs {
         List<Integer> pair6 = obj.getPair(a6, 4);
         System.out.println(pair6.toString());
     }
+
+    /**
+     *  Time Complexity = O(N)
+     *  Space Complexity = O(N)
+     */
 }
