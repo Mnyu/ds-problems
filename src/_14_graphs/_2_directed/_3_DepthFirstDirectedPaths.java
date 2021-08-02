@@ -1,25 +1,23 @@
-package _14_graphs;
+package _14_graphs._2_directed;
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class DepthFirstPaths {
-    private boolean[] visited;
-    private int[] parent;
+public class _3_DepthFirstDirectedPaths {
     private final int source;
+    private final boolean[] visited;
+    private final int[] parent;
 
-    public DepthFirstPaths(Graph graph, int source) {
+    public _3_DepthFirstDirectedPaths(_1_DirectedGraph graph, int source) {
         this.source = source;
-        this.parent = new int[graph.vertices()];
-        this.visited = new boolean[graph.vertices()];
+        this.parent = new int[graph.getVertices()];
+        this.visited = new boolean[graph.getVertices()];
+        for (int i = 0; i < graph.getVertices(); i++) {
+            parent[i] = -1;
+        }
         validateVertex(source);
-        System.out.println();
-        System.out.println("DFS : ");
-        Arrays.fill(parent, -1);
         parent[source] = source;
         dfs(graph, source);
-        System.out.println();
     }
 
     public boolean hasPathTo(int v) {
@@ -28,22 +26,18 @@ public class DepthFirstPaths {
     }
 
     public Iterable<Integer> pathTo(int v) {
-        validateVertex(v);
         if (!hasPathTo(v)) {
             return null;
         }
-        int x = v;
         Deque<Integer> stack = new LinkedList<>();
-        while (x != source) {
-            stack.addFirst(x);
-            x = parent[x];
+        for (int i = v; i != source; i = parent[i]) {
+            stack.addFirst(i);
         }
         stack.addFirst(source);
         return stack;
     }
 
-    private void dfs(Graph graph, int v) {
-        System.out.print(v + " ");
+    private void dfs(_1_DirectedGraph graph, int v) {
         visited[v] = true;
         for (int w : graph.adj(v)) {
             if (!visited[w]) {
@@ -54,8 +48,9 @@ public class DepthFirstPaths {
     }
 
     private void validateVertex(int v) {
-        if (v < 0 || v > visited.length) {
-            throw new IllegalArgumentException("Invalid vertex number");
+        if (v < 0 || v >= visited.length) {
+            throw new IllegalArgumentException("Illegal vertex index");
         }
     }
+
 }
