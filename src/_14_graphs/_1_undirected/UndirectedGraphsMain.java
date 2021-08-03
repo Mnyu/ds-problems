@@ -1,7 +1,5 @@
 package _14_graphs._1_undirected;
 
-import _14_graphs.CycleDetector;
-
 public class UndirectedGraphsMain {
     public static void main(String[] args) {
         _1_UndirectedGraph graph = new _1_UndirectedGraph(7);
@@ -34,5 +32,29 @@ public class UndirectedGraphsMain {
         System.out.println();
         System.out.println("Undirected Graph contains cycle : " + cycleDetector.isCyclePresent(graph));
 
+
+        _1_UndirectedGraph graph2 = new _1_UndirectedGraph(13);
+        graph2.addEdge(0, 1);
+        graph2.addEdge(0, 2);
+        graph2.addEdge(0, 5);
+        graph2.addEdge(0, 6);
+        graph2.addEdge(3, 5);
+        graph2.addEdge(3, 4);
+        graph2.addEdge(4, 5);
+        graph2.addEdge(4, 6);
+        graph2.addEdge(7, 8);
+        graph2.addEdge(9, 10);
+        graph2.addEdge(9, 11);
+        graph2.addEdge(9, 12);
+        graph2.addEdge(11, 12);
+        _5_ConnectedComponents connectedComp = new _5_ConnectedComponents(graph2);
+        System.out.println("\nConnected Components : " + connectedComp.getNoOfConnectedComponents());
+        for (int i = 0; i < graph2.getVertices(); i++) {
+            System.out.println("Vertex : " + i + " CompId -> " + connectedComp.getComponentId(i));
+        }
+        System.out.println("\nSize of Connected Components : ");
+        for (int i = 0; i < connectedComp.getNoOfConnectedComponents(); i++) {
+            System.out.println("Comp Id : " + i + " Size : " + connectedComp.getComponentSize(i));
+        }
     }
 }
