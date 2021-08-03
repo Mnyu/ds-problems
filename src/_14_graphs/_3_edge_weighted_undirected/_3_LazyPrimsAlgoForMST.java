@@ -14,13 +14,13 @@ import java.util.PriorityQueue;
  * This custom-made IndexMinPriorityQueue will have the capability of decreaseKey() which basically decreases the priority of the vertex.
  * [Refer Notes]
  */
-public class _3_PrimsAlgoForMST {
+public class _3_LazyPrimsAlgoForMST {
     private double weight;
     private Deque<_1_Edge> mst;
     private boolean[] visited;
     private PriorityQueue<_1_Edge> minPQ;
 
-    public _3_PrimsAlgoForMST(_2_EdgeWeightedUndirectedGraph graph) {
+    public _3_LazyPrimsAlgoForMST(_2_EdgeWeightedUndirectedGraph graph) {
         this.weight = 0;
         this.mst = new LinkedList<>();
         this.visited = new boolean[graph.getVertices()];

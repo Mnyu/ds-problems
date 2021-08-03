@@ -18,7 +18,7 @@ public class EdgeWeightedUndirectedGraphMain {
         graph.addEdge(new _1_Edge(6,7,1));
         graph.addEdge(new _1_Edge(7,8,7));
 
-        _3_PrimsAlgoForMST primsAlgoForMST = new _3_PrimsAlgoForMST(graph);
+        _3_LazyPrimsAlgoForMST primsAlgoForMST = new _3_LazyPrimsAlgoForMST(graph);
         System.out.println("MST using Prim's Algo is :");
         System.out.println(primsAlgoForMST.getMST());
         System.out.println("MST weight using Prim's Algo = " + primsAlgoForMST.getWeight());
