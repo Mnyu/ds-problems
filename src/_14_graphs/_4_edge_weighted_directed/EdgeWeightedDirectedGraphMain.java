@@ -92,5 +92,28 @@ public class EdgeWeightedDirectedGraphMain {
             System.out.println("Node : " + i + " Distance :" + bellmanFordSP.distTo(i) + "  Path : " + bellmanFordSP.pathTo(i));
         }
 
+        _2_EdgeWeightedDirectedGraph graph5 = new _2_EdgeWeightedDirectedGraph(6);
+        graph5.addEdge(new _1_DirectedEdge(0, 1, 3));
+        graph5.addEdge(new _1_DirectedEdge(0, 3, 5));
+        graph5.addEdge(new _1_DirectedEdge(1, 2, 7));
+        graph5.addEdge(new _1_DirectedEdge(1, 4, 2));
+        graph5.addEdge(new _1_DirectedEdge(1, 5, 4));
+        graph5.addEdge(new _1_DirectedEdge(2, 4, 1));
+        graph5.addEdge(new _1_DirectedEdge(2, 5, -1));
+        graph5.addEdge(new _1_DirectedEdge(3, 1, 2));
+        graph5.addEdge(new _1_DirectedEdge(3, 2, 6));
+        graph5.addEdge(new _1_DirectedEdge(5, 4, -2));
+        _6_LongestPathInDAGIterative longestPathInDAG = new _6_LongestPathInDAGIterative(graph5);
+        System.out.println("\nLongest Paths in DAG using topological sort iteratively :");
+        for (int i = 0; i < graph5.getVertices(); i++) {
+            System.out.println("Node : " + i + " Distance :" + longestPathInDAG.longDistTo(i) + "  Path : " + longestPathInDAG.pathTo(i));
+        }
+
+        _7_LongestPathInDAGRecursive longestPathInDAGRecur = new _7_LongestPathInDAGRecursive(graph5, 0);
+        System.out.println("\nLongest Paths in DAG using topological sort recursively:");
+        for (int i = 0; i < graph5.getVertices(); i++) {
+            System.out.println("Node : " + i + " Distance :" + longestPathInDAGRecur.longDistTo(i) + "  Path : " + longestPathInDAGRecur.pathTo(i));
+        }
+
     }
 }
