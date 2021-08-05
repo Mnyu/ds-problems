@@ -19,15 +19,15 @@ public class _5_KruskalAlgoForMST {
         mst = new LinkedList<>();
         PriorityQueue<_1_Edge> minPQ = new PriorityQueue<>();
         for (_1_Edge e : graph.getAllEdges()) {
-            minPQ.add(e);
+            minPQ.add(e); // O(logE)
         }
         UnionFind uf = new UnionFind(graph.getVertices());
         while (!minPQ.isEmpty() && mst.size() < graph.getVertices()) {
-            _1_Edge minEdge = minPQ.remove();
+            _1_Edge minEdge = minPQ.remove(); // O(logE)
             int v = minEdge.either();
             int w = minEdge.other(v);
-            if (!uf.isConnected(v, w)) {
-                uf.union(v, w);
+            if (!uf.isConnected(v, w)) {    // O(log*V)
+                uf.union(v, w); // O(log*V)
                 mst.addLast(minEdge);
                 weight = weight + minEdge.getWeight();
             }
@@ -41,4 +41,12 @@ public class _5_KruskalAlgoForMST {
     public Iterable<_1_Edge> getMST() {
         return mst;
     }
+
+    // Time Complexity : O(ElogE) [adding all edges to pq] +
+    //                   O(VlogE) [remove min edge from pd] +
+    //                   O(Vlog*V) [uf.isConnected check] +
+    //                   O(Vlog*V) [uf.union]
+    //                  = O(ElogE)
+    // Space Complexity : O(E)
+
 }
