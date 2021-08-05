@@ -1,4 +1,4 @@
-package _16_lru_cache;
+package _17_lru_cache;
 
 public class LRUCacheMain {
     public static void main(String[] args) {

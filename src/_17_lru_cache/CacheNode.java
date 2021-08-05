@@ -1,4 +1,4 @@
-package _16_lru_cache;
+package _17_lru_cache;
 
 public class CacheNode<K, V> {
     private K key;
