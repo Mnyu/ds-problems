@@ -43,8 +43,8 @@ public class _3_LazyPrimsAlgoForMST {
 
     private void prim(_2_EdgeWeightedUndirectedGraph graph, int v) {
         visit(graph, v);
-        while (!minPQ.isEmpty() && mst.size() < graph.getVertices() - 1) {
-            // Here mst.size() < graph.getVertices() - 1 is an optimization to exit early when mst is done.
+        while (!minPQ.isEmpty() && mst.size() < graph.getVertices()) {
+            // Here mst.size() < graph.getVertices() is an optimization to exit early when mst is done.
             // At this stage minPQ will have some edges but the vertices of those edges would already have been visited.
             _1_Edge edge = minPQ.remove(); // O(logE)
             int w = edge.either();
