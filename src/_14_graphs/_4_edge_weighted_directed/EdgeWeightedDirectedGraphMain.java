@@ -86,5 +86,11 @@ public class EdgeWeightedDirectedGraphMain {
             System.out.println("Node : " + i + " Distance :" + topoSortSPs.distTo(i) + "  Path : " + topoSortSPs.pathTo(i));
         }
 
+        _5_BellmanFordAlgo bellmanFordSP = new _5_BellmanFordAlgo(graph2, 0);
+        System.out.println("\nShortest Paths using BellmanFord's Algo graph 2:");
+        for (int i = 0; i < graph2.getVertices(); i++) {
+            System.out.println("Node : " + i + " Distance :" + bellmanFordSP.distTo(i) + "  Path : " + bellmanFordSP.pathTo(i));
+        }
+
     }
 }
