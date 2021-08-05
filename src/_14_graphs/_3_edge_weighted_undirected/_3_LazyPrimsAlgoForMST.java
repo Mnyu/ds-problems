@@ -8,11 +8,19 @@ import java.util.PriorityQueue;
  * The below implementation of Prim's Algo is Lazy Implementation because:
  * We allow certain edges to go into PriorityQueue that we know are obsolete (i.e. edges for which both vertices are already visited),
  * and then we pull out an edge and check whether it should be in MST or not.
- * <p>
- * The ideal way to do this is : Find minimum weight edge with exactly 1 vertex in MST.
+ * Time Complexity of this implementation : O(ElogE) and Space Complexity : O(E) is also high
+ * whereas we can achieve
+ * Time Complexity of this implementation : O(ElogV) and Space Complexity : O(V) with below
+ * EAGER IMPLEMENTATION :
+ * The ideal way to do this is eagerly : Find minimum weight edge with exactly 1 vertex in MST.
  * This is achieved by using a custom-made IndexMinPriorityQueue and taking vertices instead of edges in IndexMinPriorityQueue.
  * This custom-made IndexMinPriorityQueue will have the capability of decreaseKey() which basically decreases the priority of the vertex.
  * [Refer Notes]
+ * <p>
+ * OR
+ * <p>
+ * There is another way by using TreeSet and some more custom classes to achieve this eager implementation
+ * Check out : _4_EagerPrimsAlgoForMST class.
  */
 public class _3_LazyPrimsAlgoForMST {
     private double weight;
