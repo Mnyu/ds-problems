@@ -23,5 +23,10 @@ public class EdgeWeightedUndirectedGraphMain {
         System.out.println(primsAlgoForMST.getMST());
         System.out.println("MST weight using Prim's Algo = " + primsAlgoForMST.getWeight());
 
+        _5_KruskalAlgoForMST kruskalAlgoForMST = new _5_KruskalAlgoForMST(graph);
+        System.out.println("MST using Kruskal's Algo is :");
+        System.out.println(kruskalAlgoForMST.getMST());
+        System.out.println("MST weight using Kruskal's Algo = " + kruskalAlgoForMST.getWeight());
+
     }
 }
